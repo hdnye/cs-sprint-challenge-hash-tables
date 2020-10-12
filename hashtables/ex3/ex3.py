@@ -5,7 +5,9 @@ def intersection(arrays):
     # Your code here
     cache = {}
 
+    # iterate through the array
     for i in arrays:
+        # create value for cache
         for j in i:
             if j in cache:
                 cache[j] += 1
@@ -36,12 +38,11 @@ if __name__ == "__main__":
     seen = {}
     
     for i in arrays:
-        if i not in arrays:
-            seen[i] = 1
+        if i not in seen:
+            seen[i] += 1
         else:
             if seen[i] == 1:
-                dups.update(i)
-            seen[i] +=1
+                dups.update(i)            
         return dups
 
 
