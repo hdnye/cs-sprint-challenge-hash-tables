@@ -11,14 +11,18 @@ def reconstruct_trip(tickets, length):
     """
     # Your code here
     # assign k:v pair to tickets list
-    start = {ticket.source : ticket.destination for ticket in tickets}
-    # set search start at None
-    lookup = "NONE"
-    next_stop = start[lookup]
+    start = {}
     route = []
+    for ticket in tickets:
+        source, destination = ticket.source, ticket.destination
+        if source not in start:
+            start[source] = destination
+    # set search start at beginning
+    lookup = "NONE"
+    next_stop = start[lookup]    
 
-    # while loop to find route
-    while lookup != "NONE":
+    # while loop to find routes
+    while next_stop is not 'NONE':
         next_stop = start[lookup]
         route.append(next_stop)
         lookup = next_stop
