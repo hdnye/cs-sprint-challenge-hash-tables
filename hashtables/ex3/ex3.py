@@ -13,7 +13,7 @@ def intersection(arrays):
                 cache[j] += 1
             else:
                 cache[j] = 1
-
+    # list comprehension with .items()
     return [j for (j, count) in cache.items() if count == len(arrays)]
     
 
