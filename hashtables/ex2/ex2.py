@@ -17,14 +17,14 @@ def reconstruct_trip(tickets, length):
         source, destination = ticket.source, ticket.destination
         if source not in start:
             start[source] = destination
-    # set search start at None
+    # set search start at beginning
     lookup = "NONE"
     next_stop = start[lookup]    
 
-    # while loop to find route
+    # while loop to find routes
     while next_stop is not 'NONE':
         next_stop = start[lookup]
-        route.append(lookup)
+        route.append(next_stop)
         lookup = next_stop
     return route
 
